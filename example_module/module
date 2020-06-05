@@ -1,0 +1,72 @@
+
+---
+module:
+  name: &module "example_module"
+  author: &author "cunningr@gmail.com"
+  default_status: &status "disabled"
+  description: "This is an example module for use with DNA Workflows"
+  methods:
+    - {"status": *status, "task": "create_global_credentials", "stage": 1, "module": *module, "api": "dnacentersdk",
+       "author": *author,
+       "description": "Creates credentials marked as present on DNA Center"
+    }
+    - {"status": *status, "task": "delete_global_credentials", "stage": 1, "module": *module, "api": "dnacentersdk",
+       "author": *author,
+       "description": "Deletes credentials marked as absent from DNA Center"
+    }
+    - {"status": *status, "task": "list_id_groups", "stage": 1, "module": *module, "api": "isepac",
+       "author": *author,
+       "description": "Prints out a list of SGT retrieved from ISE"
+    }
+  schemas:
+    snmpWrite:
+      description: "Used by: create_global_credentials, delete_global_credentials"
+      properties:
+        presence:
+          type: string
+          enum: ['present', 'absent']
+        credentialType:
+          type: string
+        writeCommunity:
+          type: string
+        comments:
+          type: string
+        description:
+          type: string
+    snmpRead:
+      description: "Used by: create_global_credentials, delete_global_credentials"
+      properties:
+        presence:
+          type: string
+          enum: ['present', 'absent']
+        credentialType:
+          type: string
+        readCommunity:
+          type: string
+        comments:
+          type: string
+        description:
+          type: string
+    cli:
+      description: "Used by: create_global_credentials, delete_global_credentials"
+      properties:
+        presence:
+          type: string
+          enum: ['present', 'absent']
+        credentialType:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+        enablePassword:
+          type: string
+        description:
+          type: string
+  data:
+    snmpWrite:
+      - {'presence': 'present', 'credentialType': 'GLOBAL', 'writeCommunity': 'private', 'comments': 'some comment', 'description': 'snmp_rw_dna_workflows'}
+    snmpRead:
+      - {'presence': 'present', 'credentialType': 'GLOBAL', 'readCommunity': 'public', 'comments': 'some comment', 'description': 'snmp_ro_dna_workflows'}
+    cli:
+      - {'presence': 'present', 'credentialType': 'GLOBAL', 'username': 'dnacadmin', 'password': 'cisco123', 'enablePassword': 'cisco123', 'description': 'cli_creds_dna_workflows'}
