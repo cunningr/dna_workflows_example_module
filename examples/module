@@ -1,7 +1,7 @@
 
 ---
 module:
-  name: &module "example_module"
+  name: &module "examples"
   author: &author "cunningr@gmail.com"
   default_status: &status "disabled"
   description: "This is an example module for use with DNA Workflows"

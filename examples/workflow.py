@@ -1,11 +1,11 @@
 
 import logging
 import common
-from example_module import payload_templates as templates
+from examples import payload_templates as templates
 import yaml
 import pkgutil
 
-logger = logging.getLogger('main.example_module')
+logger = logging.getLogger('main.examples')
 
 
 def get_module_definition():
@@ -21,8 +21,8 @@ def create_global_credentials(api, workflow_dict):
 
     :returns: Nothing """
 
-    _schema = 'snmpWrite.schema.example_module'
-    logger.info('example_module::create_global_credentials::snmpWrite')
+    _schema = 'snmpWrite.schema.examples'
+    logger.info('examples::create_global_credentials::snmpWrite')
     logger.debug('schema: {}'.format(_schema))
 
     if _schema in workflow_dict.keys():
@@ -43,8 +43,8 @@ def create_global_credentials(api, workflow_dict):
     else:
         logger.error('schema not found: {}'.format(_schema))
 
-    _schema = 'snmpRead.schema.example_module'
-    logger.info('example_module::create_global_credentials::snmpRead')
+    _schema = 'snmpRead.schema.examples'
+    logger.info('examples::create_global_credentials::snmpRead')
     logger.debug('schema: {}'.format(_schema))
 
     if _schema in workflow_dict.keys():
@@ -64,8 +64,8 @@ def create_global_credentials(api, workflow_dict):
     else:
         logger.error('schema not found: {}'.format(_schema))
 
-    _schema = 'cli.schema.example_module'
-    logger.info('example_module::create_global_credentials::cli')
+    _schema = 'cli.schema.examples'
+    logger.info('examples::create_global_credentials::cli')
     logger.debug('schema: {}'.format(_schema))
 
     if _schema in workflow_dict.keys():
@@ -94,8 +94,8 @@ def delete_global_credentials(api, workflow_dict):
 
     :returns: Nothing """
 
-    _schema = 'snmpWrite.schema.example_module'
-    logger.info('example_module::delete_global_credentials::snmpWrite')
+    _schema = 'snmpWrite.schema.examples'
+    logger.info('examples::delete_global_credentials::snmpWrite')
     logger.debug('schema: {}'.format(_schema))
 
     if _schema in workflow_dict.keys():
@@ -114,8 +114,8 @@ def delete_global_credentials(api, workflow_dict):
     else:
         logger.error('schema not found: {}'.format(_schema))
 
-    _schema = 'snmpRead.schema.example_module'
-    logger.info('example_module::delete_global_credentials::snmpRead')
+    _schema = 'snmpRead.schema.examples'
+    logger.info('examples::delete_global_credentials::snmpRead')
     logger.debug('schema: {}'.format(_schema))
 
     if _schema in workflow_dict.keys():
@@ -133,8 +133,8 @@ def delete_global_credentials(api, workflow_dict):
     else:
         logger.error('schema not found: {}'.format(_schema))
 
-    _schema = 'cli.schema.example_module'
-    logger.info('example_module::delete_global_credentials::cli')
+    _schema = 'cli.schema.examples'
+    logger.info('examples::delete_global_credentials::cli')
     logger.debug('schema: {}'.format(_schema))
 
     if _schema in workflow_dict.keys():
@@ -162,7 +162,7 @@ def list_id_groups(api, workflow_dict):
     :returns: Nothing """
 
     _schema = None
-    logger.info('example_module::list_id_groups')
+    logger.info('examples::list_id_groups')
     logger.debug('schema: {}'.format(_schema))
 
     id_groups = api.get_identity_groups()['response']
